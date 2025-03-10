@@ -16,16 +16,6 @@ CREATE TABLE users (
     membership VARCHAR(50)
 );
 
--- Create Table: invoices
-CREATE TABLE invoices (
-    invoice_id INT PRIMARY KEY AUTO_INCREMENT,
-    order_id INT UNIQUE,  -- One-to-one relationship with orders
-    invoice_number VARCHAR(255),  -- More descriptive name
-    invoice_date DATE,
-    total_amount DECIMAL(10, 2),
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
-);
-
 -- Create Table: orders
 CREATE TABLE orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,6 +23,17 @@ CREATE TABLE orders (
     status VARCHAR(50),
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Create Table: invoices
+CREATE TABLE invoices (
+CREATE TABLE invoices (
+    invoice_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT UNIQUE,  -- One-to-one relationship with orders
+    invoice_number VARCHAR(255),  -- More descriptive name
+    invoice_date DATE,
+    total_amount DECIMAL(10, 2),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
 -- Create Table: order_items
