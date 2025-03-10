@@ -449,3 +449,77 @@ body {
   font-size: 16px;
   color: #666;
 }
+
+/* Additional styles for shipping status visualization */
+.shipping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.shipping-table th, .shipping-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.shipping-table th {
+  font-weight: bold;
+  color: #333;
+}
+
+.shipping-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.shipping-status:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+.shipping-table td:last-child .shipping-status:after {
+  display: none;
+}
+
+.status-label {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.status-date {
+  font-size: 11px;
+  color: #777;
+}
+
+.status-label.confirmed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-label.shipped {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.status-label.out-for-delivery {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-label.delivered {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
