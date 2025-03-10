@@ -11,6 +11,11 @@ body {
   color: #333;
 }
 
+a {
+  text-decoration: none;
+  color: #333;
+}
+
 /* User Table Styles */
 .user-table {
   width: 100%;
