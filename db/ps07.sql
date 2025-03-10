@@ -16,10 +16,19 @@ CREATE TABLE users (
     membership VARCHAR(50)
 );
 
+-- Create Table: invoices
+CREATE TABLE invoices (
+    invoice_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT UNIQUE,  -- One-to-one relationship with orders
+    invoice_number VARCHAR(255),  -- More descriptive name
+    invoice_date DATE,
+    total_amount DECIMAL(10, 2),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);
+
 -- Create Table: orders
 CREATE TABLE orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
-    invoice_no INT,
     order_date DATE,
     status VARCHAR(50),
     user_id INT,
@@ -49,14 +58,15 @@ CREATE TABLE admins (
 -- Create Table: shippings
 CREATE TABLE shippings (
     shipping_id INT PRIMARY KEY AUTO_INCREMENT,
-    invoice_no INT,
+    order_id INT, -- link to orders
     full_name VARCHAR(255),
     email_address VARCHAR(255),
     order_confirmed DATE,
     shipped DATE,
     out_for_delivery DATE,
     delivered DATE,
-    expected_delivery DATE
+    expected_delivery DATE,
+     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
 -- Create Table: reviews
@@ -67,8 +77,6 @@ CREATE TABLE reviews (
     comment TEXT,
     rating INT
 );
-
-
 
 -- Sample Data for Products
 INSERT INTO products (product_name, description, price) VALUES
@@ -97,14 +105,24 @@ INSERT INTO users (full_name, email_address, location, joined, membership) VALUE
 ('André da Silva', 'andré@gmail.com', 'Udon Thani, Thailand', '2018-03-13', 'Pending'),
 ('Jorge Ferreira', 'jorge@gmail.com', 'Nakhon Ratchasima, Thailand', '2018-03-14', 'Active');
 
+
 -- Sample Data for Orders
-INSERT INTO orders (invoice_no, order_date, status, user_id) VALUES
-(6969, '2023-01-15', 'Confirmed', 1),
-(6968, '2023-01-14', 'Shipped', 2),
-(6967, '2023-01-13', 'Delivered', 3),
-(6966, '2023-01-12', 'Processing', 4),
-(6965, '2023-01-11', 'Confirmed', 5),
-(6964, '2023-01-10', 'Shipped', 6);
+INSERT INTO orders (order_date, status, user_id) VALUES
+( '2023-01-15', 'Confirmed', 1),
+( '2023-01-14', 'Shipped', 2),
+( '2023-01-13', 'Delivered', 3),
+( '2023-01-12', 'Processing', 4),
+( '2023-01-11', 'Confirmed', 5),
+( '2023-01-10', 'Shipped', 6);
+
+-- Sample Data for Invoices
+INSERT INTO invoices (order_id, invoice_number, invoice_date, total_amount) VALUES
+(1, 'INV-20230115-001', '2023-01-15', 3800.00),  -- Total for Order 1
+(2, 'INV-20230114-002', '2023-01-14', 5050.00),  -- Total for Order 2
+(3, 'INV-20230113-003', '2023-01-13', 2100.00),  -- Total for Order 3
+(4, 'INV-20230112-004', '2023-01-12', 6050.00),  -- Total for Order 4
+(5, 'INV-20230111-005', '2023-01-11', 4800.00),  -- Total for Order 5
+(6, 'INV-20230110-006', '2023-01-10', 2900.00);  -- Total for Order 6
 
 -- Sample Data for Order Items
 INSERT INTO order_items (order_id, product_id, quantity) VALUES
@@ -134,11 +152,11 @@ INSERT INTO admins (full_name, email_address, location, joined, permission) VALU
 ('Jorge Ferreira', 'jorge@gmail.com', 'Nakhon Ratchasima, Thailand', '2018-03-14', 'E_Admin');
 
 -- Sample data for shippings
-INSERT INTO shippings (invoice_no, full_name, email_address, order_confirmed, shipped, out_for_delivery, delivered, expected_delivery) VALUES
-(6969, 'Leslie Maya', 'leslie@gmail.com', '2024-01-11', '2024-01-12', '2024-01-13', NULL, '2024-01-16'),
-(6968, 'Alex Pfeiffer', 'alex@gmail.com', '2024-01-11', '2024-01-12', '2024-01-14', NULL, '2024-01-16'),
-(6967, 'Mateus Cunha', 'cunha@gmail.com', '2024-01-11', '2024-01-13', '2024-01-15', NULL, '2024-01-17'),
-(6966, 'Antony Mack', 'mack@gmail.com', '2024-01-11', '2024-01-12', '2024-01-14', NULL, '2024-01-16');
+INSERT INTO shippings (order_id, full_name, email_address, order_confirmed, shipped, out_for_delivery, delivered, expected_delivery) VALUES
+(1, 'Leslie Maya', 'leslie@gmail.com', '2024-01-11', '2024-01-12', '2024-01-13', NULL, '2024-01-16'),
+(2, 'Alex Pfeiffer', 'alex@gmail.com', '2024-01-11', '2024-01-12', '2024-01-14', NULL, '2024-01-16'),
+(3, 'Mateus Cunha', 'cunha@gmail.com', '2024-01-11', '2024-01-13', '2024-01-15', NULL, '2024-01-17'),
+(4, 'Antony Mack', 'mack@gmail.com', '2024-01-11', '2024-01-12', '2024-01-14', NULL, '2024-01-16');
 
 -- Sample data for reviews
 INSERT INTO reviews (reviewer_name, review_date, comment, rating) VALUES
