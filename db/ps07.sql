@@ -6,12 +6,24 @@ CREATE TABLE products (
     price DECIMAL(10, 2)
 );
 
+-- Create Table: users
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(255),
+    email_address VARCHAR(255),
+    location VARCHAR(255),
+    joined DATE,
+    membership VARCHAR(50)
+);
+
 -- Create Table: orders
 CREATE TABLE orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
     invoice_no INT,
     order_date DATE,
-    status VARCHAR(50)
+    status VARCHAR(50),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- Create Table: order_items
@@ -56,15 +68,7 @@ CREATE TABLE reviews (
     rating INT
 );
 
--- Create Table: users
-CREATE TABLE users (
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
-    full_name VARCHAR(255),
-    email_address VARCHAR(255),
-    location VARCHAR(255),
-    joined DATE,
-    membership VARCHAR(50)
-);
+
 
 -- Sample Data for Products
 INSERT INTO products (product_name, description, price) VALUES
@@ -81,14 +85,26 @@ INSERT INTO products (product_name, description, price) VALUES
 ('Statement Earrings', 'Eye-catching earrings.', 875.00),
 ('Knit Sweater', 'Comfy oversized knit sweater.', 2275.00);
 
+-- Sample Data for Users
+INSERT INTO users (full_name, email_address, location, joined, membership) VALUES
+('Leslie Maya', 'leslie@gmail.com', 'Bangkok, Thailand', '2010-10-02', 'Active'),
+('Josie Deck', 'josie@gmail.com', 'Chiang Mai, Thailand', '2011-10-03', 'Inactive'),
+('Alex Pfeiffer', 'alex@gmail.com', 'Phuket, Thailand', '2015-05-20', 'Pending'),
+('Mike Dean', 'mike@gmail.com', 'Pattaya, Thailand', '2015-07-14', 'Active'),
+('Mateus Cunha', 'cunha@gmail.com', 'Krabi, Thailand', '2016-10-01', 'Active'),
+('Nzola Uemo', 'nzola@gmail.com', 'Hat Yai, Thailand', '2016-06-05', 'Pending'),
+('Antony Mack', 'mack@gmail.com', 'Khon Kaen, Thailand', '2015-06-15', 'Pending'),
+('André da Silva', 'andré@gmail.com', 'Udon Thani, Thailand', '2018-03-13', 'Pending'),
+('Jorge Ferreira', 'jorge@gmail.com', 'Nakhon Ratchasima, Thailand', '2018-03-14', 'Active');
+
 -- Sample Data for Orders
-INSERT INTO orders (invoice_no, order_date, status) VALUES
-(6969, '2023-01-15', 'Confirmed'),
-(6968, '2023-01-14', 'Shipped'),
-(6967, '2023-01-13', 'Delivered'),
-(6966, '2023-01-12', 'Processing'),
-(6965, '2023-01-11', 'Confirmed'),
-(6964, '2023-01-10', 'Shipped');
+INSERT INTO orders (invoice_no, order_date, status, user_id) VALUES
+(6969, '2023-01-15', 'Confirmed', 1),
+(6968, '2023-01-14', 'Shipped', 2),
+(6967, '2023-01-13', 'Delivered', 3),
+(6966, '2023-01-12', 'Processing', 4),
+(6965, '2023-01-11', 'Confirmed', 5),
+(6964, '2023-01-10', 'Shipped', 6);
 
 -- Sample Data for Order Items
 INSERT INTO order_items (order_id, product_id, quantity) VALUES
@@ -131,15 +147,3 @@ INSERT INTO reviews (reviewer_name, review_date, comment, rating) VALUES
 ('Maru', '2025-02-28', 'มันพอดีกับเท้าของฉัน', 4),
 ('Abby', '2025-10-03', 'ดีมาก สวย', 5),
 ('Lisa', '2025-05-03', 'ดีมากมากค่ะ', 5);
-
--- Sample Data for Users
-INSERT INTO users (full_name, email_address, location, joined, membership) VALUES
-('Leslie Maya', 'leslie@gmail.com', 'Bangkok, Thailand', '2010-10-02', 'Active'),
-('Josie Deck', 'josie@gmail.com', 'Chiang Mai, Thailand', '2011-10-03', 'Inactive'),
-('Alex Pfeiffer', 'alex@gmail.com', 'Phuket, Thailand', '2015-05-20', 'Pending'),
-('Mike Dean', 'mike@gmail.com', 'Pattaya, Thailand', '2015-07-14', 'Active'),
-('Mateus Cunha', 'cunha@gmail.com', 'Krabi, Thailand', '2016-10-01', 'Active'),
-('Nzola Uemo', 'nzola@gmail.com', 'Hat Yai, Thailand', '2016-06-05', 'Pending'),
-('Antony Mack', 'mack@gmail.com', 'Khon Kaen, Thailand', '2015-06-15', 'Pending'),
-('André da Silva', 'andré@gmail.com', 'Udon Thani, Thailand', '2018-03-13', 'Pending'),
-('Jorge Ferreira', 'jorge@gmail.com', 'Nakhon Ratchasima, Thailand', '2018-03-14', 'Active');
