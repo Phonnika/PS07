@@ -11,6 +11,71 @@ body {
   color: #333;
 }
 
+/* User Table Styles */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.table-header-item {
+  flex: 1;
+  text-align: left;
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+  flex: 1;
+  text-align: left;
+}
+
+.membership-bar {
+  height: 10px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.green {
+  background-color: green;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.new-user {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination-show {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
 /* Main grid layout */
 .app-container {
   display: grid;
