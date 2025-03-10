@@ -46,13 +46,21 @@ body {
 }
 
 .membership-bar {
-  height: 10px;
+  padding: 5px 10px;
   width: 100px;
   border-radius: 5px;
 }
 
 .green {
   background-color: green;
+}
+
+.s-admin {
+  background-color: red;
+}
+
+.e-admin {
+  background-color: orange;
 }
 
 .orange {
