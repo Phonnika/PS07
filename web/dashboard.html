@@ -244,6 +244,12 @@
         <a href="shippings.html" class="menu-item">
           <i>🚚</i> Shipping
         </a>
+        <a href="reviews.html" class="menu-item">
+                   <i>★</i> Rating
+        </a>
+        <a href="reviews.html" class="menu-item">
+                   <i>💬</i> Conversation
+        </a>
       </div>
       
       <div class="menu-section">
@@ -259,7 +265,7 @@
       <div class="menu-item" style="margin-top: 100px;">
         <i>⚙️</i> Setting
       </div>
-      <a href="#" class="menu-item">
+      <a href="login.html" class="menu-item">
         <i>➡️</i> Log Out
       </a>
     </div>
@@ -330,12 +336,12 @@
         </div>
       </div>
       
-      <!-- Weekly Total Sales and Reviews -->
-      <div class="dashboard-grid">
-        <!-- Weekly Total Sales -->
-        <div class="dashboard-card">
-          <div class="sales-header">
-            <h3 style="margin: 0;">Weekly Total Sales</h3>
+     <!-- Weekly Total Sales and Reviews -->
+     <div class="dashboard-grid">
+       <!-- Weekly Total Sales -->
+       <div class="dashboard-card">
+         <div class="sales-header">
+           <h3 style="margin: 0;">Weekly Total Sales</h3>
             <div class="month-selector">
               month <span style="margin-left: 5px;">▼</span>
             </div>
@@ -350,40 +356,137 @@
               <div class="chart-label" style="left: 70%;">Feb</div>
             </div>
           </div>
+          
+         <!-- Monthly Goal and Shipping Status -->
+         <div class="dashboard-grid">
+           <!-- Monthly Goal -->
+           <div class="dashboard-card">
+             <h3>Monthly Goal</h3>
+             <div class="goal-container">
+               <div class="goal-value">$8,000/10,000</div>
+               <div class="goal-comparison">33% More than last month</div>
+               <div class="meter-container">
+                 <div class="meter-bg">
+                   <div class="meter-fill"></div>
+                 </div>
+                 <div class="meter-value">80%</div>
+               </div>
+             </div>
+           </div>
+           
+          <!-- Reviews -->
+          <div class="dashboard-card">
+            <h3>Reviews</h3>
+            <div style="display: flex; align-items: center;" class="rating-container">
+              <div class="rating-value">5.0</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <h4>Weekly Rating</h4>
+            <div style="display: flex; align-items: center;" class="rating-container">
+              <div class="rating-value">4.8</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <a href="#" style="color: #666;">See all our reviews</a>
+          </div>
         </div>
-        
         <!-- Reviews -->
-        <div class="dashboard-card">
-          <h3>Reviews</h3>
-          <div style="display: flex; align-items: center;" class="rating-container">
-            <div class="rating-value">5.0</div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <h4>Weekly Rating</h4>
-          <div style="display: flex; align-items: center;" class="rating-container">
-            <div class="rating-value">4.8</div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <a href="#" style="color: #666;">See all our reviews</a>
-        </div>
       </div>
       
-      <!-- Monthly Goal and Shipping Status -->
-      <div class="dashboard-grid">
-        <!-- Monthly Goal -->
-        <div class="dashboard-card">
-          <h3>Monthly Goal</h3>
-          <div class="goal-container">
-            <div class="goal-value">$8,000/10,000</div>
-            <div class="goal-comparison">33% More than last month</div>
-            <div class="meter-container">
-              <div class="meter-bg">
-                <div class="meter-fill"></div>
-              </div>
-              <div class="meter-value">80%</div>
-            </div>
-          </div>
-        </div>
+       
+       
+         
+         <!-- Shipping Status -->
+         <div class="dashboard-card">
+           <h3>Shipping Status</h3>
+           
+           <!-- Invoice 6950 -->
+           <div class="shipping-item">
+             <div class="invoice-header">
+               <div>Invoice No.6950</div>
+               <div class="chevron-down">▶</div>
+             </div>
+             <div class="status-label status-confirmed">Order Confirmed</div>
+           </div>
+           
+           <!-- Invoice 6949 -->
+           <div class="shipping-item">
+             <div class="invoice-header">
+               <div>Invoice No.6949</div>
+               <div class="chevron-down">▶</div>
+             </div>
+             <div class="status-label status-shipped">Shipped</div>
+           </div>
+           
+           <!-- Invoice 6948 -->
+           <div class="shipping-item">
+             <div class="invoice-header">
+               <div>Invoice No.6948</div>
+               <div class="chevron-down">▶</div>
+             </div>
+             <div class="status-label status-delivered">Delivered</div>
+           </div>
+           
+           <!-- Invoice 6947 -->
+           <div class="shipping-item">
+             <div class="invoice-header">
+               <div>Invoice No.6947</div>
+               <div class="chevron-down">▶</div>
+             </div>
+             <div class="status-label status-delivered">Delivered</div>
+           </div>
+           
+           <!-- Invoice 6946 -->
+           <div class="shipping-item">
+             <div class="invoice-header">
+               <div>Invoice No.6946</div>
+               <div class="chevron-down">▶</div>
+             </div>
+             <div class="status-label status-delivered">Delivered</div>
+           </div>
+           
+           <!-- Invoice 6945 -->
+           <div class="shipping-item">
+             <div class="invoice-header">
+               <div>Invoice No.6945</div>
+               <div class="chevron-down">▶</div>
+             </div>
+             <div class="status-label status-out-for-delivery">Out For Delivery</div>
+           </div>
+         </div>
+       </div>
+       
+       <!-- Latest Order -->
+       <div class="latest-order">
+         <h2>Lastest Order</h2>
+         <div class="invoice-list">
+           <!-- Invoice 6969 -->
+           <div class="invoice-item">
+             <div class="invoice-header">
+               <div>Invoice No.6969</div>
+               <div class="dropdown-arrow">▼</div>
+             </div>
+             <div style="padding: 15px; color: #666;">
+               Date / Status / Product
+             </div>
+           </div>
+           
+           <!-- Invoice 6968 -->
+           <div class="invoice-item">
+             <div class="invoice-header">
+               <div>Invoice No.6968</div>
+               <div class="dropdown-arrow">▼</div>
+             </div>
+           </div>
+           
+           <!-- Invoice 6967 -->
+           <div class="invoice-item">
+             <div class="invoice-header">
+               <div>Invoice No.6967</div>
+               <div class="dropdown-arrow">▼</div>
+             </div>
+           </div>
+         </div>
+       </div>
         
         <!-- Shipping Status -->
         <div class="dashboard-card">
@@ -445,38 +548,6 @@
         </div>
       </div>
       
-      <!-- Latest Order -->
-      <div class="latest-order">
-        <h2>Lastest Order</h2>
-        <div class="invoice-list">
-          <!-- Invoice 6969 -->
-          <div class="invoice-item">
-            <div class="invoice-header">
-              <div>Invoice No.6969</div>
-              <div class="dropdown-arrow">▼</div>
-            </div>
-            <div style="padding: 15px; color: #666;">
-              Date / Status / Product
-            </div>
-          </div>
-          
-          <!-- Invoice 6968 -->
-          <div class="invoice-item">
-            <div class="invoice-header">
-              <div>Invoice No.6968</div>
-              <div class="dropdown-arrow">▼</div>
-            </div>
-          </div>
-          
-          <!-- Invoice 6967 -->
-          <div class="invoice-item">
-            <div class="invoice-header">
-              <div>Invoice No.6967</div>
-              <div class="dropdown-arrow">▼</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </body>
