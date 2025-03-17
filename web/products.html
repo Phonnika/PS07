@@ -62,7 +62,7 @@
       <div class="page-title">Product</div>
       <div class="category-filters">
         <button class="category-button active">All</button>
-        <button class="category-button">Shirts</button>
+        <button class="category-button" id="shirtsButton">Shirts</button>
         <button class="category-button">Shoes</button>
         <button class="category-button">Pants</button>
         <button class="category-button">Socks</button>
@@ -153,5 +153,32 @@
       </div>
     </div>
   </div>
+  <script>
+    document.getElementById('shirtsButton').addEventListener('click', function() {
+      // Filter products to show only shirts
+      const productGrid = document.querySelector('.product-grid');
+      productGrid.innerHTML = ''; // Clear existing products
+
+      // Add shirt products
+      const shirtProducts = [
+        { image: 'images/products/zebra.jpg', title: 'เสื้อปาดไหล่', price: '12' },
+        { image: 'images/products/black.jpeg', title: 'เสื้อแจ็คเก็ต สีดำ', price: '9' }
+      ];
+
+      shirtProducts.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        productCard.innerHTML = `
+          <img src="${product.image}" alt="${product.title}" class="product-image">
+          <div class="product-details">
+            <div class="product-title">${product.title}</div>
+            <div class="product-price">${product.price}</div>
+          </div>
+        `;
+        productGrid.appendChild(productCard);
+      });
+    });
+  </script>
 </body>
 </html>
